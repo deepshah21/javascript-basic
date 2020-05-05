@@ -50,3 +50,18 @@ console.log(sussy.__proto__.__proto__) // animal {}
 console.log(sussy.__proto__.__proto__.hasOwnProperty('speak')) // true
 console.log(sussy.__proto__.__proto__.__proto__) //{}
 console.log(sussy.__proto__.__proto__.__proto__.__proto__) // null
+
+
+// creating own prototype and useage
+function animal1(){}
+animal1.prototype.speak = function() {
+    console.log("grunt")
+}
+
+function cat2(name, color){
+    this.name = name;
+    this.color = color
+}
+cat2.prototype = Object.create(animal1.prototype)
+var fluffy1 = new cat2("fluffy","white")
+fluffy1.speak()
